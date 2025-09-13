@@ -1,0 +1,33 @@
+body {
+  font-family: 'Times New Roman', serif;
+  background: linear-gradient(to right, #4a00e0, #8e2de2);
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background: rgba(0,0,0,0.3);
+}
+nav a {
+  color: white;
+  margin: 0 10px;
+  text-decoration: none;
+}
+.hero {
+  text-align: center;
+  margin: 100px auto;
+}
+button {
+  background: white;
+  color: #4a00e0;
+  padding: 10px 20px;
+  margin: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
