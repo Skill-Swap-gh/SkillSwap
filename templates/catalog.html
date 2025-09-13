@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Каталог - SkillSwap</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <header>
+    <h1>Каталог участников</h1>
+    <nav>
+      <a href="/">Главная</a>
+      <a href="/catalog">Каталог</a>
+      {% if session.get('user') %}
+      <a href="/dashboard">Мой кабинет</a>
+      {% else %}
+      <a href="/login">Войти</a>
+      {% endif %}
+    </nav>
+  </header>
+  <main>
+    {% if users %}
+      <div class="cards">
+      {% for u in users %}
+        <div class="card">
+          <h3>{{ u.name }}</h3>
+          <p><b>Школа:</b> {{ u.school }}</p>
+          <p><b>Могу научить:</b> {{ u.skills_offer|join(", ") if u.skills_offer else "—" }}</p>
+          <p><b>Хочу научиться:</b> {{ u.skills_learn|join(", ") if u.skills_learn else "—" }}</p>
+          <p><b>Очки опыта:</b> {{ u.points }}</p>
+        </div>
+      {% endfor %}
+      </div>
+    {% else %}
+      <p>Пока что никто не предложил свой навык (стань первым!).</p>
+    {% endif %}
+  </main>
+</body>
+</html>

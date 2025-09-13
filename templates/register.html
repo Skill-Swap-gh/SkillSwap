@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Регистрация - SkillSwap</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <header>
+    <h1>Регистрация</h1>
+  </header>
+  <main>
+    <form method="post">
+      <input type="text" name="username" placeholder="Логин" required><br>
+      <input type="password" name="password" placeholder="Пароль" required><br>
+      <input type="text" name="name" placeholder="Имя и фамилия" required><br>
+      <input type="text" name="school" placeholder="Школа" required><br>
+      <button type="submit">Создать аккаунт</button>
+    </form>
+  </main>
+</body>
+</html>

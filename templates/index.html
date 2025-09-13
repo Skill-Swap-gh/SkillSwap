@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>SkillSwap</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <header>
+    <h1>SkillSwap</h1>
+    <nav>
+      <a href="/">Главная</a>
+      <a href="/catalog">Каталог</a>
+      <a href="/register">Регистрация</a>
+      <a href="/login">Войти</a>
+    </nav>
+  </header>
+  <main>
+    <section class="hero">
+      <h2>Обменивайся навыками с одноклассниками!</h2>
+      <p>Научи Python, получи урок гитары. Знания — валюта твоего успеха.</p>
+      <button onclick="location.href='/catalog'">Найти навык</button>
+      <button onclick="location.href='/register'">Предложить навык</button>
+    </section>
+  </main>
+</body>
+</html>

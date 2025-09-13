@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Мой кабинет - SkillSwap</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <header>
+    <h1>Личный кабинет</h1>
+    <nav>
+      <a href="/">Главная</a>
+      <a href="/catalog">Каталог</a>
+    </nav>
+  </header>
+  <main>
+    <h2>Добро пожаловать, {{ user.name }}!</h2>
+    <p><b>Школа:</b> {{ user.school }}</p>
+    <p><b>Очки опыта:</b> {{ user.points }}</p>
+    <h3>Могу научить:</h3>
+    <ul>
+      {% for s in user.skills_offer %}<li>{{ s }}</li>{% else %}<li>Нет</li>{% endfor %}
+    </ul>
+    <h3>Хочу научиться:</h3>
+    <ul>
+      {% for s in user.skills_learn %}<li>{{ s }}</li>{% else %}<li>Нет</li>{% endfor %}
+    </ul>
+  </main>
+</body>
+</html>
