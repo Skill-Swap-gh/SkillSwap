@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillSwap - Обмен навыками в школе</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header__content">
+                <div class="header__logo">
+                    <h1 class="logo" data-page="home">SkillSwap</h1>
+                </div>
+                
+                <nav class="header__nav" id="mainNav">
+                    <a href="#" class="nav-link" data-page="home">Главная</a>
+                    <a href="#" class="nav-link" data-page="catalog">Каталог</a>
+                    <a href="#" class="nav-link" data-page="calendar">Календарь</a>
+                </nav>
+                
+                <div class="header__user">
+                    <!-- For non-authenticated users -->
+                    <div class="header__auth" id="authButtons">
+                        <button class="btn btn--primary btn--sm" id="loginBtn">Войти</button>
+                    </div>
+                    
+                    <!-- For authenticated users -->
+                    <div class="header__user-menu hidden" id="userMenu">
+                        <a href="#" class="nav-link" data-page="my-lessons">Мои занятия</a>
+                        <div class="user-points" id="userPoints">0 очков</div>
+                        <div class="notifications" id="notifications">
+                            <button class="notifications__btn" id="notificationsBtn">
+                                <span class="notifications__icon">🔔</span>
+                                <span class="notifications__count" id="notificationsCount">2</span>
+                            </button>
+                            <div class="notifications__dropdown hidden" id="notificationsDropdown">
+                                <div class="notifications__header">Уведомления</div>
+                                <div class="notifications__list" id="notificationsList"></div>
+                            </div>
+                        </div>
+                        <div class="profile-dropdown">
+                            <button class="profile-btn" id="profileBtn">
+                                <img src="/api/placeholder/32/32" alt="Профиль" class="profile-avatar">
+                                <span id="currentUserName">Пользователь</span>
+                            </button>
+                            <div class="profile-menu hidden" id="profileMenu">
+                                <a href="#" data-page="profile">Мой профиль</a>
+                                <button id="logoutBtn">Выйти</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <!-- Home Page -->
+        <section class="page" id="home" data-page="home">
+            <div class="hero">
+                <div class="container">
+                    <div class="hero__content">
+                        <h1 class="hero__title">Обменивайся навыками с одноклассниками!</h1>
+                        <p class="hero__subtitle">Научи Python, получи урок гитары. Знания — валюта твоего успеха.</p>
+                        <div class="hero__actions">
+                            <button class="btn btn--primary btn--lg" data-page="catalog">Найти навык</button>
+                            <button class="btn btn--outline btn--lg" id="offerSkillBtn">Предложить навык</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="how-it-works">
+                <div class="container">
+                    <h2 class="how-it-works__title">Как это работает</h2>
+                    <div class="steps">
+                        <div class="step">
+                            <div class="step__icon">📝</div>
+                            <h3 class="step__title">Создай профиль</h3>
+                            <p class="step__text">Укажи свои навыки и что хочешь изучить</p>
+                        </div>
+                        <div class="step">
+                            <div class="step__icon">🔍</div>
+                            <h3 class="step__title">Найди партнера</h3>
+                            <p class="step__text">Ищи одноклассников с нужными навыками</p>
+                        </div>
+                        <div class="step">
+                            <div class="step__icon">🤝</div>
+                            <h3 class="step__title">Предложи обмен</h3>
+                            <p class="step__text">Договорись о времени и месте встречи</p>
+                        </div>
+                        <div class="step">
+                            <div class="step__icon">⭐</div>
+                            <h3 class="step__title">Получи опыт</h3>
+                            <p class="step__text">Изучай новое и зарабатывай очки</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Login/Register Page -->
+        <section class="page hidden" id="auth" data-page="auth">
+            <div class="auth-container">
+                <div class="auth-form">
+                    <div class="auth-tabs">
+                        <button class="auth-tab active" data-tab="login">Вход</button>
+                        <button class="auth-tab" data-tab="register">Регистрация</button>
+                    </div>
+                    
+                    <form class="auth-form__content" id="loginForm">
+                        <h2>Добро пожаловать!</h2>
+                        <div class="form-group">
+                            <label class="form-label" for="loginEmail">Email</label>
+                            <input type="email" id="loginEmail" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="loginPassword">Пароль</label>
+                            <input type="password" id="loginPassword" class="form-control" required>
+                        </div>
+                        <button type="submit" class="btn btn--primary btn--full-width">Войти</button>
+                    </form>
+                    
+                    <form class="auth-form__content hidden" id="registerForm">
+                        <h2>Создать аккаунт</h2>
+                        <div class="form-group">
+                            <label class="form-label" for="regFirstName">Имя</label>
+                            <input type="text" id="regFirstName" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="regLastName">Фамилия</label>
+                            <input type="text" id="regLastName" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="regClass">Класс</label>
+                            <input type="text" id="regClass" class="form-control" placeholder="10А" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="regEmail">Email</label>
+                            <input type="email" id="regEmail" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="regPassword">Пароль</label>
+                            <input type="password" id="regPassword" class="form-control" required>
+                        </div>
+                        <button type="submit" class="btn btn--primary btn--full-width">Зарегистрироваться</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Catalog Page -->
+        <section class="page hidden" id="catalog" data-page="catalog">
+            <div class="container">
+                <div class="catalog__header">
+                    <h1>Каталог участников</h1>
+                    <div class="catalog__filters" id="skillFilters">
+                        <!-- Filters will be populated by JS -->
+                    </div>
+                </div>
+                
+                <div class="catalog__grid" id="catalogGrid">
+                    <!-- User cards will be populated by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Profile Page -->
+        <section class="page hidden" id="profile" data-page="profile">
+            <div class="container">
+                <div class="profile-card">
+                    <div class="profile-header">
+                        <img id="profileAvatar" src="/api/placeholder/100/100" alt="Аватар" class="profile-avatar-large">
+                        <div class="profile-info">
+                            <h1 id="profileName">Имя пользователя</h1>
+                            <p id="profileClass" class="profile-class">Класс</p>
+                            <div class="profile-rating">
+                                <span class="rating" id="profileRating">★★★★★</span>
+                                <span id="profilePoints" class="profile-points">0 очков</span>
+                            </div>
+                        </div>
+                        <button class="btn btn--primary" id="editProfileBtn">Редактировать профиль</button>
+                    </div>
+                    
+                    <div class="profile-skills">
+                        <div class="skills-section">
+                            <h3>Могу научить</h3>
+                            <div class="skills-list" id="canTeachList"></div>
+                        </div>
+                        <div class="skills-section">
+                            <h3>Хочу научиться</h3>
+                            <div class="skills-list" id="wantToLearnList"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- My Lessons Page -->
+        <section class="page hidden" id="my-lessons" data-page="my-lessons">
+            <div class="container">
+                <h1>Мои занятия</h1>
+                <div class="lessons-filters">
+                    <button class="filter-btn active" data-filter="all">Все</button>
+                    <button class="filter-btn" data-filter="scheduled">Запланированные</button>
+                    <button class="filter-btn" data-filter="completed">Завершенные</button>
+                    <button class="filter-btn" data-filter="teaching">Преподаю</button>
+                    <button class="filter-btn" data-filter="learning">Изучаю</button>
+                </div>
+                
+                <div class="lessons-list" id="lessonsList">
+                    <!-- Lessons will be populated by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Calendar Page -->
+        <section class="page hidden" id="calendar" data-page="calendar">
+            <div class="container">
+                <h1>Календарь занятий</h1>
+                <div class="calendar-container">
+                    <div class="calendar" id="calendar">
+                        <!-- Calendar will be populated by JS -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modals -->
+    <!-- Exchange Proposal Modal -->
+    <div class="modal hidden" id="exchangeModal">
+        <div class="modal__overlay"></div>
+        <div class="modal__content">
+            <div class="modal__header">
+                <h2>Предложить обмен</h2>
+                <button class="modal__close">&times;</button>
+            </div>
+            <div class="modal__body">
+                <form id="exchangeForm">
+                    <div class="form-group">
+                        <label class="form-label">Хочу изучить</label>
+                        <select class="form-control" id="skillToLearn" required>
+                            <option value="">Выберите навык</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Предлагаю навык</label>
+                        <select class="form-control" id="skillToTeach" required>
+                            <option value="">Выберите навык</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Дата</label>
+                        <input type="date" class="form-control" id="exchangeDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Время</label>
+                        <input type="time" class="form-control" id="exchangeTime" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Сообщение</label>
+                        <textarea class="form-control" id="exchangeMessage" placeholder="Расскажите подробнее о предложении..." rows="3"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal__footer">
+                <button class="btn btn--outline" id="cancelExchangeBtn">Отмена</button>
+                <button class="btn btn--primary" id="submitExchangeBtn">Отправить</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Profile Modal -->
+    <div class="modal hidden" id="editProfileModal">
+        <div class="modal__overlay"></div>
+        <div class="modal__content">
+            <div class="modal__header">
+                <h2>Редактировать профиль</h2>
+                <button class="modal__close">&times;</button>
+            </div>
+            <div class="modal__body">
+                <form id="editProfileForm">
+                    <div class="form-group">
+                        <label class="form-label">Аватар</label>
+                        <input type="file" class="form-control" id="avatarInput" accept="image/*">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Имя</label>
+                        <input type="text" class="form-control" id="editFirstName" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Фамилия</label>
+                        <input type="text" class="form-control" id="editLastName" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Класс</label>
+                        <input type="text" class="form-control" id="editClass" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Могу научить (через запятую)</label>
+                        <input type="text" class="form-control" id="editCanTeach" placeholder="Python, JavaScript, Математика">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Хочу научиться (через запятую)</label>
+                        <input type="text" class="form-control" id="editWantToLearn" placeholder="Гитара, Английский, Рисование">
+                    </div>
+                </form>
+            </div>
+            <div class="modal__footer">
+                <button class="btn btn--outline" id="cancelEditBtn">Отмена</button>
+                <button class="btn btn--primary" id="saveProfileBtn">Сохранить</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Detail Modal -->
+    <div class="modal hidden" id="notificationModal">
+        <div class="modal__overlay"></div>
+        <div class="modal__content">
+            <div class="modal__header">
+                <h2>Предложение обмена</h2>
+                <button class="modal__close">&times;</button>
+            </div>
+            <div class="modal__body" id="notificationModalBody">
+                <!-- Content will be populated by JS -->
+            </div>
+            <div class="modal__footer">
+                <button class="btn btn--outline" id="declineExchangeBtn">Отклонить</button>
+                <button class="btn btn--primary" id="acceptExchangeBtn">Принять</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chat Modal -->
+    <div class="modal hidden" id="chatModal">
+        <div class="modal__overlay"></div>
+        <div class="modal__content modal__content--chat">
+            <div class="modal__header">
+                <h2 id="chatPartnerName">Чат</h2>
+                <button class="modal__close">&times;</button>
+            </div>
+            <div class="modal__body">
+                <div class="chat-messages" id="chatMessages">
+                    <!-- Messages will be populated by JS -->
+                </div>
+                <div class="chat-input">
+                    <input type="text" class="form-control" id="messageInput" placeholder="Введите сообщение...">
+                    <button class="btn btn--primary" id="sendMessageBtn">Отправить</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
