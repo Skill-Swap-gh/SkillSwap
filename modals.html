@@ -1,0 +1,71 @@
+<!-- окно входа в аккаунт -->
+ <link rel="stylesheet" href="style.css">
+<div id="authModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Вход в систему</h2>
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="username">Имя пользователя</label>
+                <input type="text" id="username" name="username" placeholder="Введите имя пользователя" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Пароль</label>
+                <input type="password" id="password" name="password" placeholder="Введите пароль" required>
+            </div>
+            <button type="submit" class="btn-primary">Войти</button>
+        </form>
+        <p class="auth-switch" id='auth-switch1'>Нет аккаунта? <a href="#" id="switchToRegister">Зарегистрироваться</a></p>
+    </div>
+</div>
+
+<!-- окно регистрации -->
+<div id="authModal2" class="modal2">
+    <div class="modal-content">
+        <span class='close2'>&times;</span>
+        <h2>Регистрация в систему</h2>
+        <form id='reqForm'>
+            <div class="form-group">
+                <label for="username">Ваше имя:</label>
+                <input type="text" id="usernameReq" name="username" placeholder="Введите имя пользователя" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="Gmail"> Ваша почта</label>
+                <input type="text" id="MailReq" name="gmail" placeholder="Введите вашу почту" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Пароль:</label>
+                <input type="password" id="passwordReq" name="password" placeholder="Введите пароль" required>
+            </div>
+            <button type="submit" class="btn-primary">Войти</button>
+        </form>
+        <p class="auth-switch" id='auth-switch2'>уже есть аккаунт? <a href="#" id="switchToLogin">Войти</a></p>
+    </div>
+</div>
+
+<!-- окно предложения зарегистрироваться или войти в акканут, если пользователь этого еще не сделал -->
+
+<div id = "authModal3" class = "modal3">
+    <div class = 'modal3-content'>
+        <span class="close3">&times;</span>
+        <div class = 'text-modal3'>
+            <h1>Похоже, вы еще не авторизовались.</h1>
+            <h2>Войдите в аккаунт, что бы продолжить.</h2>
+        </div>
+
+        <div class="btns-log-req-modal3">
+            <div class = 'btn-primary-req-modal3'>
+                <h3>уже есть акканут?</h3>
+                <button class="btn-primary">Войти</button>
+            </div>
+
+            <div class = 'btn-primary-req-modal3'>
+                <h3>Eщё нет аккаунта?</h3>
+                <button class="btn-primary" >Зарегистрироваться</button>
+            </div>
+        </div>
+
+    </div>
+</div>

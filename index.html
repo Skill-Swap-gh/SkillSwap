@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillSwap - Обмен навыками</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+            <div class="logo">
+                <img src="logo.jpg" alt="SkillSwap" class="logo-icon">
+                <span class="logo-text">SkillSwap</span>
+            </div>
+                <nav class="nav">
+                    <a href="index.html" class="nav-link-now">Главная</a>
+                    <a href="catalog.html" class="nav-link">Каталог</a>
+                </nav>
+                <div class="header-actions">
+                    <button class="btn-primary">Войти</button>
+                    <a href="#" class="nav-link btn-login-mod">Мои занятия</a> <!--!!!!!! -->
+                    <span class="points">- XP</span>
+                    <button class="icon-btn btn-login-mod">🔔</button>  <!--!!!!!! -->
+                    <button class="icon-btn profile-btn btn-login-mod">👤</button> <!--!!!!!! -->
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1 class="hero-title">Обменивайся навыками с одноклассниками!</h1>
+                        <p class="hero-subtitle">Научи Python, получи урок гитары. Знания - валюта твоего успеха.</p>
+                        <div class="hero-buttons">
+                            <button class="btn-secondary btn-login-mod">Найти навык</button> <!--!!!!!! -->
+                            <button class="btn-primary btn-login-mod">Предложить навык</button> <!--!!!!!! -->
+                        </div>
+                    </div>
+                    <div class="hero-image">
+                        <div class="photo-card">
+                            <div class="photo-pin"></div>
+                            <p class="photo-text">фото</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="how-it-works">
+            <div class="container">
+                <h2 class="section-title">Как это работает</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">👤</div>
+                        <div class="feature-content">
+                            <h3 class="feature-title">Создай профиль</h3>
+                            <p class="feature-text">Укажи навыки, которые предлагаешь и которые ищешь</p>
+                        </div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🔍</div>
+                        <div class="feature-content">
+                            <h3 class="feature-title">Найди партнера</h3>
+                            <p class="feature-text">Используй каталог чтобы найти одноклассника для обмена</p>
+                        </div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🎓</div>
+                        <div class="feature-content">
+                            <h3 class="feature-title">Проведи урок</h3>
+                            <p class="feature-text">Получи внутренние баллы - очки опыта</p>
+                        </div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🏆</div>
+                        <div class="feature-content">
+                            <h3 class="feature-title">Потрать очки</h3>
+                            <p class="feature-text">Используй очки для обучения у других и оставь отзыв</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="popular-skills">
+            <div class="container">
+                <h2 class="section-title">Популярные навыки</h2>
+                <div class="empty-state">
+                    <p class="empty-state-text">В настоящее время в базе данных отсутствуют доступные навыки для обмена</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p class="footer-text">© 2025 SkillSwap - обмен навыками в школе</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="modal-loader.js"></script>
+    <script src="homePage.js"></script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillSwap - Найди партнера для обмена</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="catalog-page">
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="logo.jpg" alt="SkillSwap" class="logo-icon">
+                    <span class="logo-text">SkillSwap</span>
+                </div>
+                <nav class="nav">
+                    <a href="index.html" class="nav-link">Главная</a>
+                    <a href="catalog.html" class="nav-link-now">Каталог</a>
+                </nav>
+                <div class="header-actions">
+                    <button class="btn-primary">Войти</button>
+                    <a href="#" class="nav-link btn-login-mod">Мои занятия</a> <!--!!!!!! -->
+                    <span class="points">- XP</span>
+                    <button class="icon-btn btn-login-mod">🔔</button> <!--!!!!!! -->
+                    <button class="icon-btn profile-btn btn-login-mod">👤</button> <!--!!!!!! -->
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-catalog">
+            <div class="container">
+                <h1 class="hero-title-catalog">Найди партнера для обмена</h1>
+                <p class="hero-subtitle-catalog">Тысячи одноклассников готовы делиться знаниями</p>
+            </div>
+        </section>
+
+        <section class="filters-section">
+            <div class="container">
+                <div class="filters-wrapper">
+                    <div class="filters-label">Фильтры:</div>
+                    <div class="filter-buttons">
+                        <button class="filter-btn">Все</button>
+                        <button class="filter-btn">Программирование</button>
+                        <button class="filter-btn">Математика</button>
+                        <button class="filter-btn">Русский Язык</button>
+                        <button class="filter-btn">Информатика</button>
+                        <button class="filter-btn">Физика</button>
+                    </div>
+                    <div class="search-wrapper">
+                        <span class="search-icon">🔍</span>
+                        <input type="text" class="search-input" placeholder="Поиск по имени или навык">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="catalog-results">
+            <div class="container">
+                <div class="empty-state">
+                    <div class="empty-icon">
+                        <span class="emoji-large">📖</span>
+                    </div>
+                    <p class="empty-state-text">На данный момент в нашей системе нет доступных навыков</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="modal-loader.js"></script>
+    <script src="catalog.js"></script>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p class="footer-text">© 2025 SkillSwap - обмен навыками в школе</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
